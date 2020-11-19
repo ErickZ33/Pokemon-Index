@@ -1,0 +1,100 @@
+.pokemonContainer{
+    display: inline-block;
+    vertical-align: top;
+    padding: 20px 20px 20px 20px;
+    margin: auto;
+    width: 25%;
+    text-align: center;
+}
+
+.centerText{
+    text-align: center;
+}
+
+.name{
+    margin-bottom: 40px;
+}
+
+.type{
+    margin-top: 30px;
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid black;
+    padding: 1% 5% 0% 5%;
+}
+
+.image{
+    width: 100px;
+    height: 100px;
+}
+
+.grass{
+    background-color: lightgreen;
+}
+
+.poison{
+    background-color: lavender;
+}
+
+.fire{
+    background-color: lightcoral;
+}
+
+.water{
+    background-color: lightskyblue;
+}
+
+.bug{
+    background-color: greenyellow;
+}
+
+.flying{
+    background-color: lightgray;
+}
+
+.electric{
+    background-color: yellow;
+}
+
+.normal{
+    background-color: gray;
+}
+
+.ground{
+    background-color: burlywood;
+}
+
+.fairy{
+    background-color: lightpink;
+}
+
+.fighting{
+    background-color: brown;
+}
+
+.psychic{
+    background-color: purple;
+    color:white;
+}
+
+.rock{
+    background-color: brown;
+}
+
+.steel{
+    background-color: silver;
+}
+
+.ice{
+    background-color: cyan;
+}
+
+.ghost{
+    background-color: plum;
+}
+
+.dragon{
+    background-color: cornflowerblue;
+}
+
