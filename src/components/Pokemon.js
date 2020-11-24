@@ -1,13 +1,17 @@
 import React from 'react'
 import Axios from 'axios'
 
-import PokemonInfo from './PokemonInfo'
 import "../css/pokemon.css"
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 class Pokemon extends React.Component{
     constructor(props){
         super(props);
-
         this.state = {
             Pokemon: [],
             PokemonImage: [],
@@ -15,11 +19,10 @@ class Pokemon extends React.Component{
         }
     }
     componentDidMount(){
-        Axios.get("https://pokeapi.co/api/v2/pokemon/?offset=00&limit=10")
+        Axios.get("https://pokeapi.co/api/v2/pokemon/?offset=00&limit=16")
             .then((response) => {
                 this.setState({
                     Pokemon: response.data.results,
-                    PokemonInfo:false,
                     isLoading: false,
                     CurrentPokemon:{},
                     Types:[],
@@ -53,28 +56,16 @@ class Pokemon extends React.Component{
         })
         this.setState({isLoading:false})
     }
-    displayInfo(pokemon, index){
-        this.setState({
-            PokemonInfo:true,
-            CurrentPokemon:{
-                "name":pokemon,
-                "index":index
-            }
-        })
-    }
     render(){
         if(this.state.isLoading){
             return <div className="App">Loading...</div>
-        }
-        if(this.state.PokemonInfo){
-            return <PokemonInfo pokemonInfo={this.state.CurrentPokemon}/>
         }
         return(
             <div className="container">
                 {
                     this.state.Pokemon.map((pokemon, index) => {
                         return this.state.PokemonImage[index] != null 
-                        ?   <div key={index} className="row pokemonContainer" onClick={() => this.displayInfo(pokemon.name, (index + 1))}>
+                        ?   <div key={index} className="row pokemonContainer">
                                 <div>
                                     <h3 className="centerText name">{pokemon.name} #{index + 1}</h3>
                                     <div>
@@ -97,6 +88,14 @@ class Pokemon extends React.Component{
                                                         </div>   
                                             })
                                         }
+                                    </div>
+                                    <div>
+                                        <Link to={{
+                                            pathname: "/about/" + (index + 1),
+                                            state:{
+                                                "name": pokemon.name
+                                            }
+                                        }}>More Info</Link>    
                                     </div>
                                     <hr></hr>
                                 </div>
